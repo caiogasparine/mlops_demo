@@ -82,9 +82,9 @@ Resources:
                 - pip install -r source/requirements.txt
             build:
               commands:
-                - echo "Running training.py"
+                - echo "Running Classificador.ipynb"
                 - cd source
-                - python training.py "${SagemakerRole.Arn}" "${DataBucket}" "${AWS::StackName}" $CODEBUILD_RESOLVED_SOURCE_VERSION
+                - python Classificador.ipynb "${SagemakerRole.Arn}" "${DataBucket}" "${AWS::StackName}" $CODEBUILD_RESOLVED_SOURCE_VERSION
             post_build:
               commands:
                 - echo "Cleaning"
@@ -121,8 +121,8 @@ Resources:
                 - pip install -r source/requirements.txt
             build:
               commands:
-              - echo "Running test.py"
-              - python source/test.py "${AWS::StackName}" $CODEBUILD_RESOLVED_SOURCE_VERSION
+              - echo "Running consumindo.ipynb"
+              - python consumindo.ipynb "${AWS::StackName}" $CODEBUILD_RESOLVED_SOURCE_VERSION
       TimeoutInMinutes: 30
 
 
@@ -317,5 +317,5 @@ Outputs:
       Description: Role needed to execute in local mode
 
   ExampleLocalCommand:
-      Value: !Sub python training.py ${SagemakerRole.Arn} ${DataBucket} MODEL_NAME VERSION
+      Value: !Sub python Classificador.ipynb ${SagemakerRole.Arn} ${DataBucket} MODEL_NAME VERSION
       Description: Example of command that you will need to execute to trigger trainning from your local machine
