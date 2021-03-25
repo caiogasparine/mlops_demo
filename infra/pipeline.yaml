@@ -77,17 +77,17 @@ Resources:
           phases:
             pre_build:
               commands:
-                - echo "Installing requirements"
+                - echo "Instalando requirements"
                 - pip install --upgrade pip
                 - pip install -r source/requirements.txt
             build:
               commands:
-                - echo "Running Classificador.ipynb"
+                - echo "Rodando treino.py"
                 - cd source
-                - python Classificador.ipynb "${SagemakerRole.Arn}" "${DataBucket}" "${AWS::StackName}" $CODEBUILD_RESOLVED_SOURCE_VERSION
+                - python treino.py "${SagemakerRole.Arn}" "${DataBucket}" "${AWS::StackName}" $CODEBUILD_RESOLVED_SOURCE_VERSION
             post_build:
               commands:
-                - echo "Cleaning"
+                - echo "Limpando"
           artifacts:
             files:
               - '**/*'
@@ -116,13 +116,13 @@ Resources:
                 - apt-get install -y libgl1-mesa-dev
             pre_build:
               commands:
-                - echo "Installing requirements"
+                - echo "Instalando requirements"
                 - pip install --upgrade pip
                 - pip install -r source/requirements.txt
             build:
               commands:
-              - echo "Running consumindo.ipynb"
-              - python consumindo.ipynb "${AWS::StackName}" $CODEBUILD_RESOLVED_SOURCE_VERSION
+              - echo "Rodando teste.py"
+              - python teste.py "${AWS::StackName}" $CODEBUILD_RESOLVED_SOURCE_VERSION
       TimeoutInMinutes: 30
 
 
