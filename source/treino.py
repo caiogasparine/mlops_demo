@@ -1,16 +1,10 @@
 import pandas as pd
 import numpy as np
-#import matplotlib.pyplot as plt
-#import seaborn as sns
-
-#import pickle as pickle
-
 import time
 import sys
 import sagemaker
 
 from sagemaker.pytorch import PyTorch
-#from torchvision import datasets, transforms
 
 
 prefix = "sagemaker/dt-CTA"
@@ -32,8 +26,8 @@ import random
 from sklearn import tree
 from sklearn.model_selection import cross_val_score
 from sklearn import metrics
-from IPython.display import Image
-from pydotplus import graph_from_dot_data
+#from IPython.display import Image
+#from pydotplus import graph_from_dot_data
 
 df = pd.read_csv('Telescope data.csv')
 
