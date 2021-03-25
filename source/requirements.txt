@@ -7,3 +7,4 @@ torch-vision==0.1.6.dev0
 torch==1.4.0
 wget==3.2
 pandas
+sklearn
